@@ -100,14 +100,7 @@ void RenderWindow::init()
 
     //********************** Making the objects to be drawn **********************
 
-    VisualObject *temp = new ObjMesh("plane.obj");
-    temp->init();
-    temp->setShader(mShaderProgram[1]);
-    temp->mMaterial.setTextureUnit(1);
-    //temp->mMaterial.mObjectColor = gsl::Vector3D(0.0f, 0.0f, 0.f);
-    temp->mMatrix.setPosition(0, 0, 0);
-    temp->mMatrix.scale(gsl::Vector3D(150.f, 1.f, 150.f));
-    mVisualObjects.push_back(temp);
+    MakePlane();
 
     mBoat = new Boat(gsl::Vector3D(0.f, 10.f, 0.f));
     mBoat->init();
@@ -178,6 +171,85 @@ void RenderWindow::setupTextureShader(int shaderIndex)
     vMatrixUniform1 = glGetUniformLocation(mShaderProgram[shaderIndex]->getProgram(), "vMatrix");
     pMatrixUniform1 = glGetUniformLocation(mShaderProgram[shaderIndex]->getProgram(), "pMatrix");
     mTextureUniform = glGetUniformLocation(mShaderProgram[shaderIndex]->getProgram(), "textureSampler");
+}
+
+void RenderWindow::MakePlane()
+{
+    VisualObject *temp = new ObjMesh("plane.obj");
+    temp->init();
+    temp->setShader(mShaderProgram[1]);
+    temp->mMaterial.setTextureUnit(1);
+    //temp->mMaterial.mObjectColor = gsl::Vector3D(0.0f, 0.0f, 0.f);
+    temp->mMatrix.setPosition(0, 0, 0);
+    temp->mMatrix.scale(gsl::Vector3D(150.f, 1.f, 150.f));
+    mVisualObjects.push_back(temp);
+    // Adding some more 2D squares -- would benefit from a resource manager here
+    // if plane.obj was a larger file, since we're essentially
+    // re-reading the plane.obj file each time we create a new object.
+    temp = new ObjMesh("plane.obj");
+    temp->init();
+    temp->setShader(mShaderProgram[1]);
+    temp->mMaterial.setTextureUnit(1);
+    //temp->mMaterial.mObjectColor = gsl::Vector3D(0.0f, 0.0f, 0.f);
+    temp->mMatrix.setPosition(300, 0, 300);
+    temp->mMatrix.scale(gsl::Vector3D(150.f, 1.f, 150.f));
+    mVisualObjects.push_back(temp);
+    temp = new ObjMesh("plane.obj");
+    temp->init();
+    temp->setShader(mShaderProgram[1]);
+    temp->mMaterial.setTextureUnit(1);
+    //temp->mMaterial.mObjectColor = gsl::Vector3D(0.0f, 0.0f, 0.f);
+    temp->mMatrix.setPosition(00, 0, 300);
+    temp->mMatrix.scale(gsl::Vector3D(150.f, 1.f, 150.f));
+    mVisualObjects.push_back(temp);
+    temp = new ObjMesh("plane.obj");
+    temp->init();
+    temp->setShader(mShaderProgram[1]);
+    temp->mMaterial.setTextureUnit(1);
+    //temp->mMaterial.mObjectColor = gsl::Vector3D(0.0f, 0.0f, 0.f);
+    temp->mMatrix.setPosition(300, 0, 0);
+    temp->mMatrix.scale(gsl::Vector3D(150.f, 1.f, 150.f));
+    mVisualObjects.push_back(temp);
+    temp = new ObjMesh("plane.obj");
+    temp->init();
+    temp->setShader(mShaderProgram[1]);
+    temp->mMaterial.setTextureUnit(1);
+    //temp->mMaterial.mObjectColor = gsl::Vector3D(0.0f, 0.0f, 0.f);
+    temp->mMatrix.setPosition(-300, 0, 0);
+    temp->mMatrix.scale(gsl::Vector3D(150.f, 1.f, 150.f));
+    mVisualObjects.push_back(temp);
+    temp = new ObjMesh("plane.obj");
+    temp->init();
+    temp->setShader(mShaderProgram[1]);
+    temp->mMaterial.setTextureUnit(1);
+    //temp->mMaterial.mObjectColor = gsl::Vector3D(0.0f, 0.0f, 0.f);
+    temp->mMatrix.setPosition(0, 0, -300);
+    temp->mMatrix.scale(gsl::Vector3D(150.f, 1.f, 150.f));
+    mVisualObjects.push_back(temp);
+    temp = new ObjMesh("plane.obj");
+    temp->init();
+    temp->setShader(mShaderProgram[1]);
+    temp->mMaterial.setTextureUnit(1);
+    //temp->mMaterial.mObjectColor = gsl::Vector3D(0.0f, 0.0f, 0.f);
+    temp->mMatrix.setPosition(-300, 0, 300);
+    temp->mMatrix.scale(gsl::Vector3D(150.f, 1.f, 150.f));
+    mVisualObjects.push_back(temp);
+    temp = new ObjMesh("plane.obj");
+    temp->init();
+    temp->setShader(mShaderProgram[1]);
+    temp->mMaterial.setTextureUnit(1);
+    //temp->mMaterial.mObjectColor = gsl::Vector3D(0.0f, 0.0f, 0.f);
+    temp->mMatrix.setPosition(300, 0, -300);
+    temp->mMatrix.scale(gsl::Vector3D(150.f, 1.f, 150.f));
+    mVisualObjects.push_back(temp);
+    temp = new ObjMesh("plane.obj");
+    temp->init();
+    temp->setShader(mShaderProgram[1]);
+    temp->mMaterial.setTextureUnit(1);
+    //temp->mMaterial.mObjectColor = gsl::Vector3D(0.0f, 0.0f, 0.f);
+    temp->mMatrix.setPosition(-300, 0, -300);
+    temp->mMatrix.scale(gsl::Vector3D(150.f, 1.f, 150.f));
+    mVisualObjects.push_back(temp);
 }
 
 //This function is called from Qt when window is exposed (shown)

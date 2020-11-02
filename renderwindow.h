@@ -57,7 +57,10 @@ private:
     GLint mTextureUniform{-1};
 
     std::vector<VisualObject *> mVisualObjects;
-
+    /** Create the 9 planes that the "boat" travels over.
+     * Necessary to give some measure of movement, since the camera moves with the boat.
+     */
+    void MakePlane();
     VisualObject *mPlayer; //the controllable object
     Boat *mBoat;
 
